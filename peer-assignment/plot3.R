@@ -1,3 +1,5 @@
+#plot3 only
+
 dataurl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 download.file(dataurl, destfile = "./data/powerdata.zip")
 unzip("./data/powerdata.zip", exdir = "./data", overwrite = TRUE)

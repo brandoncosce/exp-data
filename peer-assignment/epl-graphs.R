@@ -1,3 +1,5 @@
+# Will produce all four graphs. Optional code to add current date/time to plot1 filename included for fun.
+
 dataurl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 download.file(dataurl, destfile = "./data/powerdata.zip")
 unzip("./data/powerdata.zip", exdir = "./data", overwrite = TRUE)
@@ -11,9 +13,11 @@ DateTime <- paste(hpc_dataFeb$Date,hpc_dataFeb$Time, sep = " ")
 DateTime <- ymd_hms(DateTime)
 hpc_dataFeb$DateTime <- DateTime
 hpc_dataFeb$Global_active_power <- as.numeric(hpc_dataFeb$Global_active_power)
-#filename1 <- paste("plot1",as.Date(now()),".", format(now(),"%Hh%Mm"),".png", sep = "")
 
-#plot1 filename1 <- "plot1.png"
+
+#plot1 
+#filename1 <- paste("plot1",as.Date(now()),".", format(now(),"%Hh%Mm"),".png", sep = "")
+filename1 <- "plot1.png"
 png(filename1)
 with(hpc_dataFeb, hist(Global_active_power/1000*2, col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)", ylab = "Frequency"))
 dev.off()
